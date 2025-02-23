@@ -1,0 +1,7 @@
+# # from flask import Flask, request, jsonify
+# import requests
+# from bs4 import BeautifulSoup
+
+flask==1.1.2
+requests==2.24.0
+beautifulsoup4==4.9.3
