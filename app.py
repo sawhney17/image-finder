@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  
 import requests
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
+# handling CORS issues for tihs 
+CORS(app) 
 
 def get_first_image_url(query):
     search_url = f"https://www.google.com/search?q={query}&tbm=isch"
@@ -14,7 +17,7 @@ def get_first_image_url(query):
 
     soup = BeautifulSoup(response.text, "html.parser")
     img_tags = soup.find_all("img")
-    
+
     if len(img_tags) > 2:
         return img_tags[2]["src"]
     return None
